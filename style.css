@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100;
+    background-color: #1e1e1e;
+    color: white;
+    font-family: "Poppins" , sans-serif;
+    text-align: center;
+    margin: 0;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    }
+
+    #message {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #4caf50;
+        color: white;
+        font-size: 2rem;
+        padding: 15px 30px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(red, green, blue, alpha);
+        animation: fadIn 0.5s ease-in-out;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+
+    }
+    #board {
+        display:grid;
+        grid-template-columns: repeat(8, 50px);
+        grid-gap: 5px;
+        padding: 10px;
+        background: #2b2b2b;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .cell {
+        width: 50px;
+    height: 50px;
+    background-color: #444;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 22px;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.cell:hover {
+    background-color: #555;
+    transform: scale(1.05);
+}
+
+.cell.revealed {
+    background-color: #d0d0d0; /* Branco suave */
+    font-weight: bold;
+    color: #000 !important; /* Agora os números são PRETOS */
+}
+
+.cell.bomb {
+    background-color: red !important;
+    color: white;
+    font-weight: bold;
+}
+
+/* BOTÃO DE REINICIAR */
+#resetButton {
+    margin-top: 15px;
+    padding: 12px 25px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    background: linear-gradient(to right, #ff4d4d, #d32f2f);
+    border: none;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s, box-shadow 0.3s;
+    box-shadow: 0px 4px 8px rgba(255, 77, 77, 0.3);
+    outline: none;
+}
+
+#resetButton:hover {
+    background: linear-gradient(to right, #ff6666, #b71c1c);
+    transform: scale(1.1);
+    box-shadow: 0px 6px 12px rgba(255, 77, 77, 0.5);
+}
+
+#resetButton:active {
+    transform: scale(0.95);
+}
+
+/* ANIMAÇÕES */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+/* Mensagem de vitória e derrota */
+#message {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    padding: 15px 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Mensagem de vitória (verde) */
+#message.win {
+    background: #4caf50;
+    color: white;
+}
+
+/* Mensagem de derrota (vermelho) */
+#message.loss {
+    background: #d32f2f;
+    color: white;
+}
+.cell.revealed {
+    background-color: #d0d0d0; /* Branco suave */
+    font-weight: bold;
+    color: #000 !important; /* Cor padrão para números */
+}
+
+/* Cores específicas para números */
+.cell.revealed[data-value="1"] {
+    color: blue !important;
+}
+
+.cell.revealed[data-value="2"] {
+    color: green !important;
+}
+
+.cell.revealed[data-value="3"] {
+    color: red !important;
+}
+
+.cell.revealed[data-value="4"] {
+    color: purple !important;
+}
